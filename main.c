@@ -1,10 +1,12 @@
 /*
  * main.c
- * Definition of "WinMain" for Nilang
+ * Implementation of the "WinMain" of Nilang
  */
 
 #include <windows.h>
-#include "helpers.h"
+#include "primarywindow.h"
+#include "errorhandler.h"
+#include "globalconstants.h"
 
 
 int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, LPTSTR commandLine, int commandShow) {
@@ -14,7 +16,7 @@ int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, LPTSTR
     primaryWindow = CreatePrimaryWindow(currentInstance);
 
     if (primaryWindow == NULL) {
-        PerformErrorHandling(WINDOW_CREATION_FAILED, NULL);
+        PerformErrorHandling(WINDOW_CREATION_FAILED);
         return 1;
     }
 
